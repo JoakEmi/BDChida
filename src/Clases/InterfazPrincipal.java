@@ -34,9 +34,7 @@ public class InterfazPrincipal extends javax.swing.JFrame {
         Proveedores = new javax.swing.JButton();
         Cajeros = new javax.swing.JButton();
         Ventas = new javax.swing.JButton();
-        DetalleVenta = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        DetalleCompra = new javax.swing.JButton();
         Categoria = new javax.swing.JButton();
         Marca = new javax.swing.JButton();
         Aceptar = new javax.swing.JButton();
@@ -82,24 +80,10 @@ public class InterfazPrincipal extends javax.swing.JFrame {
             }
         });
 
-        DetalleVenta.setText("DetalleVenta");
-        DetalleVenta.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                DetalleVentaActionPerformed(evt);
-            }
-        });
-
         jButton2.setText("Compras");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
-            }
-        });
-
-        DetalleCompra.setText("DetalleCompra");
-        DetalleCompra.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                DetalleCompraActionPerformed(evt);
             }
         });
 
@@ -139,12 +123,10 @@ public class InterfazPrincipal extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(Clientes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(Productos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(Proveedores, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(Proveedores, javax.swing.GroupLayout.DEFAULT_SIZE, 99, Short.MAX_VALUE)
                             .addComponent(Cajeros, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(Ventas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(DetalleVenta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(DetalleCompra, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(Categoria, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(Marca, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
@@ -168,18 +150,14 @@ public class InterfazPrincipal extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Ventas)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(DetalleVenta)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(DetalleCompra)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Categoria)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Marca)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
+                .addGap(26, 26, 26)
                 .addComponent(Aceptar)
-                .addContainerGap())
+                .addContainerGap(32, Short.MAX_VALUE))
         );
 
         pack();
@@ -216,23 +194,11 @@ public class InterfazPrincipal extends javax.swing.JFrame {
         interfazsecundaria.setVisible(true);
     }//GEN-LAST:event_VentasActionPerformed
 
-    private void DetalleVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DetalleVentaActionPerformed
-        // TODO add your handling code here:
-        InterfazSecundaria interfazsecundaria = new InterfazSecundaria("DetalleVenta");
-        interfazsecundaria.setVisible(true);
-    }//GEN-LAST:event_DetalleVentaActionPerformed
-
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         InterfazSecundaria interfazsecundaria = new InterfazSecundaria("Compras");
         interfazsecundaria.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void DetalleCompraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DetalleCompraActionPerformed
-        // TODO add your handling code here:
-        InterfazSecundaria interfazsecundaria = new InterfazSecundaria("DetalleCompra");
-        interfazsecundaria.setVisible(true);
-    }//GEN-LAST:event_DetalleCompraActionPerformed
 
     private void CategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CategoriaActionPerformed
         // TODO add your handling code here:
@@ -294,8 +260,6 @@ public class InterfazPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton Cajeros;
     private javax.swing.JButton Categoria;
     private javax.swing.JButton Clientes;
-    private javax.swing.JButton DetalleCompra;
-    private javax.swing.JButton DetalleVenta;
     private javax.swing.JButton Marca;
     private javax.swing.JButton Productos;
     private javax.swing.JButton Proveedores;
