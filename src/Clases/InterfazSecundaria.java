@@ -204,7 +204,7 @@ public class InterfazSecundaria extends javax.swing.JFrame {
     }//GEN-LAST:event_AltasActionPerformed
 
     private void SalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalirActionPerformed
-        System.exit(0);
+        this.dispose();
     }//GEN-LAST:event_SalirActionPerformed
 
     private void BajasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BajasActionPerformed
