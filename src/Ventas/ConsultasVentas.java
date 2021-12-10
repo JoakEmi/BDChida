@@ -5,6 +5,7 @@
 package Ventas;
 
 import Conexiones.Conexion;
+import DetalleVenta.ConsultasDetalleVenta;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -40,11 +41,12 @@ public class ConsultasVentas extends javax.swing.JFrame {
         txtIdCajero = new javax.swing.JTextField();
         txtMonto = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        dateFecha = new com.toedter.calendar.JDateChooser();
         txIdCliente = new javax.swing.JTextField();
         txtId = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         BtnAceptar = new javax.swing.JButton();
+        txtFecha = new javax.swing.JTextField();
+        btnDetallesVenta = new javax.swing.JButton();
 
         setResizable(false);
 
@@ -75,9 +77,6 @@ public class ConsultasVentas extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel2.setText("Numero de Venta: ");
 
-        dateFecha.setDateFormatString("dd-MM-yyyy");
-        dateFecha.setEnabled(false);
-
         txIdCliente.setEnabled(false);
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -88,6 +87,21 @@ public class ConsultasVentas extends javax.swing.JFrame {
         BtnAceptar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnAceptarActionPerformed(evt);
+            }
+        });
+
+        txtFecha.setEnabled(false);
+        txtFecha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtFechaActionPerformed(evt);
+            }
+        });
+
+        btnDetallesVenta.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        btnDetallesVenta.setText("Detalles Venta");
+        btnDetallesVenta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDetallesVentaActionPerformed(evt);
             }
         });
 
@@ -114,20 +128,25 @@ public class ConsultasVentas extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(BtnBuscar)
                         .addGap(20, 20, 20))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(txtMonto, javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(txtIdCajero)
-                        .addComponent(txIdCliente, javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(dateFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtMonto, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 206, Short.MAX_VALUE)
+                            .addComponent(txtIdCajero)
+                            .addComponent(txIdCliente, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txtFecha))
+                        .addGap(0, 0, Short.MAX_VALUE))))
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(111, 111, 111)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(155, 155, 155)
-                        .addComponent(BtnAceptar)))
+                .addGap(111, 111, 111)
+                .addComponent(jLabel1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(BtnAceptar)
+                .addGap(59, 59, 59))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(45, 45, 45)
+                .addComponent(btnDetallesVenta)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -140,14 +159,13 @@ public class ConsultasVentas extends javax.swing.JFrame {
                     .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(BtnBuscar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel3)
-                            .addComponent(txtMonto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel4))
-                    .addComponent(dateFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(txtMonto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(txtFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -158,8 +176,10 @@ public class ConsultasVentas extends javax.swing.JFrame {
                         .addComponent(txIdCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtIdCajero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(BtnAceptar)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(BtnAceptar)
+                    .addComponent(btnDetallesVenta))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -184,7 +204,7 @@ public class ConsultasVentas extends javax.swing.JFrame {
                     while(rs.next()){
 
                         txtMonto.setText(rs.getString("Monto"));
-                        dateFecha.setDate(rs.getDate("Fecha"));
+                        txtFecha.setText(rs.getString("Fecha"));
                         txIdCliente.setText(rs.getString("IdCliente"));
                         txtIdCajero.setText(rs.getString("IdCajero"));
 
@@ -213,6 +233,22 @@ public class ConsultasVentas extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_BtnAceptarActionPerformed
 
+    private void txtFechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFechaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtFechaActionPerformed
+
+    private void btnDetallesVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDetallesVentaActionPerformed
+        // TODO add your handling code here:
+        if(!txtId.getText().equals("")){
+            ConsultasDetalleVenta consultasDetalleVenta = new ConsultasDetalleVenta();
+            consultasDetalleVenta.setVisible(true);
+        }else{
+            JOptionPane.showMessageDialog(null, "Inserta todos los datos",
+            "Error", JOptionPane.OK_OPTION);
+        }
+        this.dispose();
+    }//GEN-LAST:event_btnDetallesVentaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -220,7 +256,7 @@ public class ConsultasVentas extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnAceptar;
     private javax.swing.JButton BtnBuscar;
-    private com.toedter.calendar.JDateChooser dateFecha;
+    private javax.swing.JButton btnDetallesVenta;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -228,6 +264,7 @@ public class ConsultasVentas extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JTextField txIdCliente;
+    private javax.swing.JTextField txtFecha;
     private javax.swing.JTextField txtId;
     private javax.swing.JTextField txtIdCajero;
     private javax.swing.JTextField txtMonto;

@@ -5,6 +5,7 @@
 package Ventas;
 
 import Conexiones.Conexion;
+import DetalleVenta.CambiosDetalleVenta;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -124,7 +125,7 @@ public class CambiosVentas extends javax.swing.JFrame {
                         .addGap(126, 126, 126)
                         .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(164, 164, 164)
+                        .addGap(157, 157, 157)
                         .addComponent(btnAceptar)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -193,7 +194,9 @@ public class CambiosVentas extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, e,
                     "Error", JOptionPane.OK_OPTION);
             }
-
+            CambiosDetalleVenta cambiosDetalleVenta = new CambiosDetalleVenta();
+            cambiosDetalleVenta.setVisible(true);
+            
         }else
 
         JOptionPane.showMessageDialog(null, "Inserta todos los datos",
@@ -217,18 +220,17 @@ public class CambiosVentas extends javax.swing.JFrame {
                 try (Statement st = con1.createStatement(); ResultSet rs = st.executeQuery(sql)) {
 
                     while(rs.next()){
-
                         txtMonto.setText(rs.getString("Monto"));
                         txtFecha.setText(rs.getString("Fecha"));
                         txIdCliente.setText(rs.getString("IdCliente"));
                         txtIdCajero.setText(rs.getString("IdCajero"));
 
                     }
-
-                    txtMonto.setEditable(true);
+                    txtId.setEnabled(false);
+                    txtMonto.setEnabled(true);
                     txtFecha.setEnabled(true);
-                    txIdCliente.setEditable(true);
-                    txtIdCajero.setEditable(true);
+                    txIdCliente.setEnabled(true);
+                    txtIdCajero.setEnabled(true);
 
                 }
 
