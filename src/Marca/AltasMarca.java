@@ -109,7 +109,6 @@ public class AltasMarca extends javax.swing.JFrame {
         // TODO add your handling code here:
         if(!txtNombreMarca.getText().equals("")){
             try{
-
                 Connection con1;
                 Conexion conect1 = new Conexion();
                 con1 = conect1.getConnection();
@@ -124,7 +123,6 @@ public class AltasMarca extends javax.swing.JFrame {
             }catch(SQLException e){
                 JOptionPane.showMessageDialog(null, e,
                     "Error", JOptionPane.OK_OPTION);
-
             }
         }else
         JOptionPane.showMessageDialog(null, "Inserta todos los datos",

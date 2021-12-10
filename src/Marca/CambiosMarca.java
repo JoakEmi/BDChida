@@ -153,7 +153,7 @@ public class CambiosMarca extends javax.swing.JFrame {
                         txtNombreMarca.setText(rs.getString("NombreMarca"));
                         txtIdProveedor.setText(rs.getString("IdProveedor"));
                     }
-
+                    txtId.setEnabled(false);
                     txtNombreMarca.setEnabled(true);
                     txtIdProveedor.setEnabled(true);
                 }

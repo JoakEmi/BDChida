@@ -169,7 +169,7 @@ public class CambiosCajeros extends javax.swing.JFrame {
                         txtTelefonoCajero.setText(rs.getString("TelefonoCajero"));
 
                     }
-
+                    txtId.setEnabled(false);
                     txtNombreCajero.setEnabled(true);
                     txtApellidoCajero.setEnabled(true);
                     txtTelefonoCajero.setEnabled(true);
