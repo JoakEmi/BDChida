@@ -236,7 +236,7 @@ public class InterfazPrincipal extends javax.swing.JFrame {
 
     private void CategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CategoriaActionPerformed
         // TODO add your handling code here:
-        InterfazSecundaria interfazsecundaria = new InterfazSecundaria("Categoría");
+        InterfazSecundaria interfazsecundaria = new InterfazSecundaria("Categoria");
         interfazsecundaria.setVisible(true);
     }//GEN-LAST:event_CategoriaActionPerformed
 
