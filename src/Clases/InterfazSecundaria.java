@@ -223,9 +223,6 @@ public class InterfazSecundaria extends javax.swing.JFrame {
         }else if(tabla.equals("Ventas")){
             BajasVentas bajasVentas = new BajasVentas();
             bajasVentas.setVisible(true);
-        }else if(tabla.equals("DetalleVenta")){
-            BajasDetalleVenta bajasDetalleVenta = new BajasDetalleVenta();
-            bajasDetalleVenta.setVisible(true);
         }else if(tabla.equals("Compras")){
             BajasCompras bajasCompras = new BajasCompras();
             bajasCompras.setVisible(true);
